@@ -1,18 +1,16 @@
 package fr.aymane.dkhissi.bigburger.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import fr.aymane.dkhissi.bigburger.entities.Product
 import fr.aymane.dkhissi.bigburger.entities.RequestState
-import fr.aymane.dkhissi.bigburger.repositories.BigBurgerRepository
+import fr.aymane.dkhissi.bigburger.model.repositories.BigBurgerRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ListProductsViewModel @Inject constructor(val bigBurgerRepository: BigBurgerRepository) :
+class ProductsViewModel @Inject constructor(val bigBurgerRepository: BigBurgerRepository) :
     ViewModel() {
 
     private val _requestState = MutableLiveData<RequestState>()
@@ -34,6 +32,12 @@ class ListProductsViewModel @Inject constructor(val bigBurgerRepository: BigBurg
                 _requestState.postValue(RequestState.Failure)
             }
 
+        }
+    }
+
+    fun updateBasketList(listProducts : List<Product>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            bigBurgerRepository.updateBasketList(listProducts)
         }
     }
 }

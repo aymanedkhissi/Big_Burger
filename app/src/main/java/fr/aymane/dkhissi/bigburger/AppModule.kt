@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import fr.aymane.dkhissi.bigburger.api.BigBurgerApiService
+import fr.aymane.dkhissi.bigburger.model.api.BigBurgerApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton

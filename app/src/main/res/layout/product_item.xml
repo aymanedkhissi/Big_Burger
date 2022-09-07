@@ -57,10 +57,20 @@
                 android:id="@+id/txt_price_product"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="@+id/img_product"
-                app:layout_constraintEnd_toEndOf="@+id/txt_description_product"
+                app:layout_constraintEnd_toStartOf="@+id/img_add_to_basket"
                 app:layout_constraintStart_toStartOf="@+id/txt_description_product" />
+
+            <ImageView
+                android:id="@+id/img_add_to_basket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_price_product"
+                app:layout_constraintEnd_toEndOf="@+id/txt_description_product"
+                app:layout_constraintTop_toTopOf="@+id/txt_price_product"
+                app:srcCompat="@drawable/ic_baseline_add_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

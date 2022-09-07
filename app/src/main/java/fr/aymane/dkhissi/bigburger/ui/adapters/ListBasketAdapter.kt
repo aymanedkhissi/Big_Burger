@@ -11,9 +11,8 @@ import fr.aymane.dkhissi.bigburger.R
 import fr.aymane.dkhissi.bigburger.entities.Product
 
 
-class ListProductsAdapter(val onAddToBasketClick: (Product) -> Unit) :
-    androidx.recyclerview.widget.ListAdapter<Product,
-            ListBasketViewHolder>(Product.DiffCallback()) {
+class ListBasketAdapter() : androidx.recyclerview.widget.ListAdapter<Product,
+        ListBasketViewHolder>(Product.DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ListBasketViewHolder {
@@ -28,14 +27,12 @@ class ListProductsAdapter(val onAddToBasketClick: (Product) -> Unit) :
         holder.txt_title.text = product.title
         holder.txt_price.text = centToEuro(product.price)
         holder.img_product.load(product.thumbnail)
-        holder.img_add_to_basket.setOnClickListener {
-            onAddToBasketClick(product)
-        }
+        holder.img_add_to_basket.visibility = View.GONE
 
     }
 }
 
-class ListProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ListBasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val txt_title: TextView = view.findViewById(R.id.txt_title_product)
     val txt_description: TextView = view.findViewById(R.id.txt_description_product)

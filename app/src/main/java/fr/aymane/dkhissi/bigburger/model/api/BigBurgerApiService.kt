@@ -1,4 +1,4 @@
-package fr.aymane.dkhissi.bigburger.api
+package fr.aymane.dkhissi.bigburger.model.api
 
 import fr.aymane.dkhissi.bigburger.entities.Product
 import retrofit2.Response
