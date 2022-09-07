@@ -25,7 +25,7 @@ class ListProductsAdapter() : androidx.recyclerview.widget.ListAdapter<Product,
         val product = getItem(position)
         holder.txt_description.text = product.description
         holder.txt_title.text = product.title
-        holder.txt_price.text = product.price.toString()
+        holder.txt_price.text = centToEuro(product.price)
         holder.img_product.load(product.thumbnail)
 
 
@@ -42,4 +42,8 @@ class ListProductsViewHolder (view : View) : RecyclerView.ViewHolder ( view ) {
     val txt_price : TextView = view.findViewById(R.id.txt_price_product )
     val img_product : ImageView = view.findViewById(R.id.img_product )
 
+}
+
+private fun centToEuro (price : Double) : String {
+    return String.format("%.2f", price/100)+" €"
 }
